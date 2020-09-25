@@ -4,20 +4,21 @@ This is a tool to derive formal semantic representations of
 natural language sentences given CCG derivation trees and semantic templates.
 
 ## Installation
-
+### Requirements
+- Coq 8.3 (for RTE)
+### Install
 In order to run most part of this software, it is necessary to install python3,
 nltk 3, lxml, simplejson and yaml python libraries. I recommend to use a python virtual environment,
 and install the packages in the virtual environment with `pip`:
 
 ```bash
-sudo apt-get install python3-dev
-sudo apt-get install python-virtualenv
+pip install pipenv
 sudo apt-get install libxml2-dev libxslt1-dev
 git clone https://github.com/mynlp/ccg2lambda.git
 cd ccg2lambda
-virtualenv --no-site-packages --distribute -p /usr/bin/python3 py3
-source py3/bin/activate
-pip install lxml simplejson pyyaml -I nltk==3.0.5
+pipenv --python 3.7
+pipenv install
+pipenv shell
 ```
 
 You also need to install WordNet:
@@ -42,6 +43,7 @@ sudo apt-get install coq
 Then, compile the coq library that contains the axioms:
 
 ```bash
+cp coqlib-simple.v coqlib.v
 coqc coqlib.v
 ```
 
@@ -146,6 +148,17 @@ pipe it to a theorem prover (Coq) and judge the entailment
 relation, you can run the following command:
 
 ```bash
+# Prepare in English
+cp en/coqlib_fracas.v coqlib.v
+coqc coqlib.v
+cp en/tactics_coq_fracas.txt tactics_coq.txt
+
+# Prepare in Japanese
+cp ja/coqlib_ja.v coqlib.v
+coqc coqlib.v
+cp ja/tactics_coq_ja.txt tactics_coq.txt
+
+# And run
 python scripts/prove.py sentences.sem.xml --graph_out graphdebug.html
 ```
 

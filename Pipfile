@@ -1,0 +1,21 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+lxml = "~=4.5"
+simplejson = "~=3.17"
+pyyaml = "~=5.3"
+nltk = "==3.0.5"
+
+# For RTE
+cython = "~=0.29"
+numpy = "~=1.19"
+chainer = ">=2.0.0, <=6.7.0"
+depccg = "==1.0.6"
+
+[requires]
+python_version = "3.7.9"

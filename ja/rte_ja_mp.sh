@@ -64,9 +64,12 @@ fi
 
 # These variables contain the names of the directories where intermediate
 # results will be written.
-plain_dir="ja_plain" # tokenized sentences.
-parsed_dir="ja_parsed" # parsed sentences into XML or other formats.
-results_dir="ja_results" # HTML semantic outputs, proving results, etc.
+plain_dir="out/ja_plain" # tokenized sentences.
+parsed_dir="out/ja_parsed" # parsed sentences into XML or other formats.
+results_dir="out/ja_results" # HTML semantic outputs, proving results, etc.
+if [ ! -e ${results_dir}/${sentences_basename}.${parser_name}.answer ]; then
+  rm -r $plain_dir $parsed_dir $results_dir
+fi
 mkdir -p $plain_dir $parsed_dir $results_dir
 
 # Copy the input text to plain_dir
