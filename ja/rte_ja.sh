@@ -67,7 +67,9 @@ fi
 plain_dir="out/ja_plain" # tokenized sentences.
 parsed_dir="out/ja_parsed" # parsed sentences into XML or other formats.
 results_dir="out/ja_results" # HTML semantic outputs, proving results, etc.
-rm -r $plain_dir $parsed_dir $results_dir
+if [ ! -e "${results_dir}/${sentences_basename}.answer" ]; then
+  rm -r $plain_dir $parsed_dir $results_dir
+fi
 mkdir -p $plain_dir $parsed_dir $results_dir
 
 # Here we check whether the variable is pointing to the right C&C parser directory.
