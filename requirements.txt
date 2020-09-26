@@ -2,7 +2,6 @@ certifi==2020.6.20
 chainer==6.7.0
 chardet==3.0.4
 Cython==0.29.21
-depccg==1.0.6
 filelock==3.0.12
 googledrivedownloader==0.4
 idna==2.10
@@ -17,3 +16,5 @@ six==1.15.0
 typing==3.6.6
 typing-extensions==3.6.6
 urllib3==1.25.10
+
+depccg==1.0.6
